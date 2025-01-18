@@ -2,18 +2,20 @@
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
   --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
   display: grid;
-  grid-template-rows: 20px 1fr 20px;
+  grid-template-rows: auto 1fr auto;
   align-items: center;
   justify-items: center;
   min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
+  padding: var(--spacing-xl);
+  gap: var(--spacing-xl);
   font-family: var(--font-geist-sans);
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,7 +23,6 @@
     --gray-rgb: 255, 255, 255;
     --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
     --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
     --button-primary-hover: #ccc;
     --button-secondary-hover: #1a1a1a;
   }
@@ -30,131 +31,149 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  gap: var(--spacing-lg);
+  grid-row: 2;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .main ol {
   font-family: var(--font-geist-mono);
-  padding-left: 0;
+  padding-left: var(--spacing-md);
   margin: 0;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
   letter-spacing: -0.01em;
-  list-style-position: inside;
 }
 
 .main li:not(:last-of-type) {
-  margin-bottom: 8px;
+  margin-bottom: var(--spacing-xs);
 }
 
 .main code {
   font-family: inherit;
   background: var(--gray-alpha-100);
-  padding: 2px 4px;
+  padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: 4px;
   font-weight: 600;
 }
 
 .ctas {
   display: flex;
-  gap: 16px;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .ctas a {
   appearance: none;
-  border-radius: 128px;
+  border-radius: 999px;
   height: 48px;
-  padding: 0 20px;
-  border: none;
+  padding: 0 var(--spacing-md);
   border: 1px solid transparent;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: var(--font-size-base);
+  line-height: 1.2;
   font-weight: 500;
+  min-width: clamp(140px, 30vw, 180px);
 }
 
 a.primary {
   background: var(--foreground);
   color: var(--background);
-  gap: 8px;
+  gap: var(--spacing-xs);
 }
 
 a.secondary {
   border-color: var(--gray-alpha-200);
-  min-width: 180px;
 }
 
 .footer {
-  grid-row-start: 3;
+  grid-row: 3;
   display: flex;
-  gap: 24px;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  padding: var(--spacing-sm) 0;
 }
 
 .footer a {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
 }
 
 .footer img {
   flex-shrink: 0;
+  width: 20px;
+  height: 20px;
 }
 
-/* Enable hover only on non-touch devices */
+/* Hover effects */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
     background: var(--button-primary-hover);
-    border-color: transparent;
+    transform: translateY(-1px);
   }
 
   a.secondary:hover {
     background: var(--button-secondary-hover);
-    border-color: transparent;
+    transform: translateY(-1px);
   }
 
   .footer a:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
+    opacity: 0.8;
   }
 }
 
+/* Tablet */
+@media (max-width: 768px) {
+  .page {
+    padding: var(--spacing-lg);
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Mobile */
 @media (max-width: 600px) {
   .page {
-    padding: 32px;
-    padding-bottom: 80px;
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
   }
 
   .main {
-    align-items: center;
+    text-align: center;
   }
 
   .main ol {
-    text-align: center;
+    text-align: left;
+    padding-left: var(--spacing-lg);
   }
 
   .ctas {
     flex-direction: column;
+    width: 100%;
   }
 
   .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
+    width: 100%;
+    max-width: 100%;
+    font-size: var(--font-size-sm);
   }
 
   .footer {
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: var(--spacing-sm);
   }
 }
 
