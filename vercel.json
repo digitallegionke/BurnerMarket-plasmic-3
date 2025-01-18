@@ -1,0 +1,16 @@
+{
+  "env": {
+    "AIRTABLE_API_KEY": "patc0fICredOiBa6A.93e028d1fd27b475422635dfc6ee1fde8425953cd3743d15dbe1cf2f59631fdd",
+    "AIRTABLE_BASE_ID": "appHMnnjqXiHIdqnp",
+    "AIRTABLE_RECIPES_TABLE": "Recipes",
+    "AIRTABLE_DIRECTORY_TABLE": "Directory - Ingredients"
+  },
+  "build": {
+    "env": {
+      "AIRTABLE_API_KEY": "patc0fICredOiBa6A.93e028d1fd27b475422635dfc6ee1fde8425953cd3743d15dbe1cf2f59631fdd",
+      "AIRTABLE_BASE_ID": "appHMnnjqXiHIdqnp",
+      "AIRTABLE_RECIPES_TABLE": "Recipes",
+      "AIRTABLE_DIRECTORY_TABLE": "Directory - Ingredients"
+    }
+  }
+}
